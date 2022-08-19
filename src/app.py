@@ -1,21 +1,13 @@
 ### Cosas que agregaría al explore:
 
-# histogramas variables numéricas #
-df_interim_p.hist()
-plt.show()
-df_interim_z.hist()
-plt.show()
+
 
 # gráfico de lineas (P vs Z) con x = tiempo (semana o mes), y = cantidad de tweets que los mencionan #
 # hay que crear un data frame con la unidad de tiempo en la fila, una columna que identifique P o Z, y la variable a graficar
 sns.lineplot(data=df_plot, x = 'hour', y = 'rate', hue = 'source', markers = True, style = 'source', dashes = False)
 plt.show()
 
-# mostrar texto original del tweet y usuario, al mostrar los más frecuentes, o más retweeteados #
 
-# tweets que mencionen a ambos, están en los 2 datasets? en ese caso armar un tercero con esos tweets
-
-# yo sacaría estas palabras: vladimir, putin, volodymyr, zelensky, russia, russian, ukraine, ukranian, u
 
 # csv con palabras y sentimiento asociado #
 # URL: http://saifmohammad.com/WebPages/lexicons.html  
