@@ -59,10 +59,17 @@ def double_space(tweet):
     return re.sub('\s+', ' ', tweet)
 
 def no_links(tweet):
+    tweet = re.sub(r'\n', '', tweet)
+    pattern = r"[^\s]*\.(com|org|net)\S*"
+    tweet = re.sub(pattern, '', tweet)
+    tweet = re.sub(r'https?:\/\/\S*', '', tweet, flags=re.MULTILINE)
     tweet = re.sub(r'http\S+', '', tweet)   # remove http links
+    tweet = re.sub(r"www.\S+", "", tweet)
+    tweet = re.sub(r'\w+:\/{2}[\d\w-]+(\.[\d\w-]+)*(?:(?:\/[^\s/]*))*', '', tweet)
     tweet = re.sub(r'bit.ly/\S+', '', tweet)  # remove bitly links
     tweet = tweet.strip('[link]')   # remove [links]
     tweet = re.sub(r'pic.twitter\S+','', tweet)
+    tweet = re.sub(r'[\S]+\.(net|com|org|info|edu|gov|uk|de|ca|jp|fr|au|us|ru|ch|it|nel|se|no|es|mil)[\S]*\s?','',tweet)
     return tweet
 
 def remove_quoted(tweet):
@@ -146,7 +153,8 @@ def preprocess(df_raw):
     df.drop(columns=['UserScreenName',"Text", "Emojis","Image link"], axis=1, inplace=True)
 
     # Convert to datetime
-    df['Timestamp'] = df['Timestamp'].astype('datetime64')
+    df['Timestamp'] = pd.to_datetime(df['Timestamp'], format="%Y-%m-%dT%H:%M:%S.%f")
+    df['Timestamp'] = df['Timestamp'].dt.date
 
     # Convert to numeric (some of the records contain commas and letters, so we must remove these characters to transform them to numbers)
     df['Comments'] = df['Comments'].str.replace(',', '').astype('int64')
@@ -199,6 +207,9 @@ def preprocess(df_raw):
 
     # Remove numbers   
     df['Clean_Tweet']=df['Clean_Tweet'].apply(no_num)
+
+    # Remove "gif alt" text
+    df['Clean_Tweet']=df['Clean_Tweet'].str.replace('gif alt', '')
 
     # Remove stopwords
     stop_dict = stopwords.words('english')
