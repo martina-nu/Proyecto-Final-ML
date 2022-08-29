@@ -153,6 +153,8 @@ def preprocess(df_raw):
     df.drop(columns=['UserScreenName',"Text", "Emojis","Image link"], axis=1, inplace=True)
 
     # Convert to datetime
+    #df['Timestamp'] = df['Timestamp'].apply(pd.Timestamp).apply(pd.Timestamp.date)
+    #df['Timestamp'] = pd.to_datetime(df['Timestamp'], format="%Y-%m-%d")
     df['Timestamp'] = pd.to_datetime(df['Timestamp'], format="%Y-%m-%dT%H:%M:%S.%f")
     df['Timestamp'] = df['Timestamp'].dt.date
 
