@@ -9,6 +9,7 @@ from nltk.corpus import stopwords
 import matplotlib.pyplot as plt
 from wordcloud import WordCloud
 import seaborn as sns
+from sklearn.feature_extraction.text import CountVectorizer
 from collections import Counter
 nltk.download('wordnet')
 nltk.download('omw-1.4')
@@ -38,6 +39,14 @@ def plot_frequency_charts(df, feature, title, pallete):
     plt.xlabel(title, fontsize=12)
     plt.xticks(rotation=90)
     plt.show()
+
+def get_top_ngram(corpus, n=None):
+    vec = CountVectorizer(ngram_range=(n, n)).fit(corpus)
+    bag_of_words = vec.transform(corpus)
+    sum_words = bag_of_words.sum(axis=0)
+    words_freq = [(word, sum_words[0, idx]) for word, idx in vec.vocabulary_.items()]
+    words_freq = sorted(words_freq, key = lambda x: x[1], reverse=True)
+    return words_freq[:10]
 
 # functions to remove symbols
 
@@ -153,10 +162,9 @@ def preprocess(df_raw):
     df.drop(columns=['UserScreenName',"Text", "Emojis","Image link"], axis=1, inplace=True)
 
     # Convert to datetime
-    #df['Timestamp'] = df['Timestamp'].apply(pd.Timestamp).apply(pd.Timestamp.date)
-    #df['Timestamp'] = pd.to_datetime(df['Timestamp'], format="%Y-%m-%d")
     df['Timestamp'] = pd.to_datetime(df['Timestamp'], format="%Y-%m-%dT%H:%M:%S.%f")
     df['Timestamp'] = df['Timestamp'].dt.date
+    df['Timestamp'] = pd.to_datetime(df['Timestamp'])
 
     # Convert to numeric (some of the records contain commas and letters, so we must remove these characters to transform them to numbers)
     df['Comments'] = df['Comments'].str.replace(',', '').astype('int64')
