@@ -1,20 +1,14 @@
 import streamlit as st
 import pandas as pd
+import numpy as np 
 pd.set_option('display.max_colwidth', None)
 import matplotlib.pyplot as plt
-import seaborn as sns
-import re
+from wordcloud import WordCloud
 import nltk
 nltk.download('stopwords')
-from nltk.corpus import stopwords
-from wordcloud import WordCloud
-from collections import Counter
-nltk.download('wordnet')
-nltk.download('omw-1.4')
-from nltk.stem import WordNetLemmatizer
+import utils
 # vader
 from nltk.sentiment.vader import SentimentIntensityAnalyzer
-nltk.download("vader_lexicon")
 # textblob
 from textblob import TextBlob
 # flair
@@ -38,13 +32,19 @@ df_final_z = df_final_z.replace(cat)
 
 # Putin WordCloud (1 word) - vader
 
-fig, ax = plt.subplots(1, 2, figsize = (24, 24))
+fig, ax = plt.subplots(1, 2,  figsize = (24, 24))
 
 # Positive
 wordcloud_pos = WordCloud(width=600, height=600, stopwords=common_words).generate(' '.join(i for i in df_final_p[df_final_p['vader_Sentiment'] == 'Positive'].Clean_Tweet))
 ax[0].set_title('Vader positive sentiment', fontsize = 'xx-large')
 ax[0].imshow(wordcloud_pos, interpolation = 'bilinear')
 ax[0].axis("off")
+
+plt.axis("off")
+plt.tight_layout(pad=0)
+plt.imshow(wordcloud_pos, interpolation='bilinear')
+st.pyplot(fig)
+
 
 # Positive
 wordcloud_neg = WordCloud(width=600, height=600, stopwords=common_words).generate(' '.join(i for i in df_final_p[df_final_p['vader_Sentiment'] == 'Negative'].Clean_Tweet))
