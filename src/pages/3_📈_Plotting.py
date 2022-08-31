@@ -30,26 +30,25 @@ cat = {'flair_Sentiment': {'NEGATIVE': 'Negative', 'POSITIVE': 'Positive'}}
 df_final_p = df_final_p.replace(cat)
 df_final_z = df_final_z.replace(cat)
 
+
 # Putin WordCloud (1 word) - vader
 
-fig, ax = plt.subplots(1, 2,  figsize = (24, 24))
+fig, ax = plt.subplots(figsize = (10, 10))
 
 # Positive
 wordcloud_pos = WordCloud(width=600, height=600, stopwords=common_words).generate(' '.join(i for i in df_final_p[df_final_p['vader_Sentiment'] == 'Positive'].Clean_Tweet))
-ax[0].set_title('Vader positive sentiment', fontsize = 'xx-large')
-ax[0].imshow(wordcloud_pos, interpolation = 'bilinear')
-ax[0].axis("off")
-
+plt.title('Vader positive sentiment', fontsize = 40)
+plt.imshow(wordcloud_pos, interpolation = 'bilinear')
 plt.axis("off")
 plt.tight_layout(pad=0)
 plt.imshow(wordcloud_pos, interpolation='bilinear')
 st.pyplot(fig)
 
-
-# Positive
+# Negative
 wordcloud_neg = WordCloud(width=600, height=600, stopwords=common_words).generate(' '.join(i for i in df_final_p[df_final_p['vader_Sentiment'] == 'Negative'].Clean_Tweet))
-ax[1].set_title('Vader negative sentiment', fontsize = 'xx-large')
-ax[1].imshow(wordcloud_neg, interpolation = 'bilinear')
-ax[1].axis("off")
-
-fig.show()
+plt.title('Vader negative sentiment', fontsize = 40)
+plt.imshow(wordcloud_neg, interpolation = 'bilinear')
+plt.axis("off")
+plt.tight_layout(pad=0)
+plt.imshow(wordcloud_neg, interpolation='bilinear')
+st.pyplot(fig)

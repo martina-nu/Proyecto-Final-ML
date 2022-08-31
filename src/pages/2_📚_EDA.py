@@ -1,5 +1,7 @@
 import streamlit as st
 import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
 
 # read the final dataframes
 df_final_p= pd.read_csv('../data/processed/Putin_tweets.csv')
@@ -31,7 +33,11 @@ df_final_p = df_final_p.replace(cat)
 df_final_z = df_final_z.replace(cat)
 
 # correlation matrix between numerical variables - Putin
-df_final_p.corr().style.background_gradient(cmap='Blues')
+fig, ax = plt.subplots()
+sns.heatmap(df_final_p.corr(), ax=ax, vmin=0, vmax=1, linewidths=.5,cmap="YlGnBu")
+st.write(fig)
 
 # correlation matrix between numerical variables - Zelensky
-df_final_z.corr().style.background_gradient(cmap='Blues')
+fig1, ax = plt.subplots()
+sns.heatmap(df_final_z.corr(), ax= ax, vmin=0, vmax=1, linewidths=.5, cmap="YlGnBu")
+st.write(fig1)
