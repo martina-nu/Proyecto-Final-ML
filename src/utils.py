@@ -17,14 +17,14 @@ from nltk.stem import WordNetLemmatizer
 
 ## functions to be used are defined here ##
 
-# plot the 20 users with most tweets
-def plot_frequency_charts(df, feature, title, pallete):
+# plot the "n" users with most tweets
+def plot_frequency_charts(df, feature, title, pallete, n):
     freq_df = pd.DataFrame()
     freq_df[feature] = df[feature]
     
     f, ax = plt.subplots(1,1, figsize=(20,8))
     total = float(len(df))
-    g = sns.countplot(df[feature], order = df[feature].value_counts().index[:20], palette=pallete)
+    g = sns.countplot(df[feature], order = df[feature].value_counts().index[:n], palette=pallete)
     g.set_title("Number and percentage of {}".format(title))
 
     for p in ax.patches:
@@ -149,7 +149,7 @@ def clean_stopwords(text: str,stop_dict: dict)->str:
 lemmatizer = WordNetLemmatizer()
 def lemmatize_words(text):
     words = text.split()
-    words = [lemmatizer.lemmatize(word, pos='v') for word in words]
+    words = [lemmatizer.lemmatize(word) for word in words]
     return ' '.join(words)
 
 # Take the raw dataframe and return the processed dataframe
@@ -236,3 +236,26 @@ def preprocess(df_raw):
     df = df[['Timestamp', 'UserName', 'Comments', 'Likes', 'Retweets', 'Is_response', 'Quote_another', 'Tweet', 'Clean_Tweet']]
 
     return df
+
+# function to create a corpus for topic modeling
+def create_corpus_topic(df):
+    corpus=[]
+    stem=PorterStemmer()
+    lem=WordNetLemmatizer()
+    for news in df['Clean_Tweet']:
+        words=[w for w in word_tokenize(news)]
+
+        words=[lem.lemmatize(w) for w in words if len(w)>2]
+
+        corpus.append(words)
+    return corpus
+
+# functions to apply entity recognition
+
+def ner(text):
+    doc=nlp(text)
+    return [X.label_ for X in doc.ents]
+
+def ner_ent(text,ent):
+    doc=nlp(text)
+    return [X.text for X in doc.ents if X.label_ == ent]
