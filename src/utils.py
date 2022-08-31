@@ -2,18 +2,37 @@
 
 import pandas as pd
 pd.set_option('display.max_colwidth', None)
+import matplotlib.pyplot as plt
+import seaborn as sns
+from sklearn.metrics import confusion_matrix
+from sklearn.feature_extraction.text import CountVectorizer
 import re
 import nltk
 nltk.download('stopwords')
 from nltk.corpus import stopwords
-import matplotlib.pyplot as plt
 from wordcloud import WordCloud
-import seaborn as sns
-from sklearn.feature_extraction.text import CountVectorizer
 from collections import Counter
 nltk.download('wordnet')
 nltk.download('omw-1.4')
 from nltk.stem import WordNetLemmatizer
+
+## Topic Modeling ##
+nltk.download('punkt')
+nltk.download('wordnet')
+from nltk.stem import *
+from nltk.tokenize import word_tokenize
+import pyLDAvis
+import pyLDAvis.gensim_models as gensimvis
+import gensim
+import gensim.corpora as corpora
+from gensim.corpora import Dictionary
+from gensim.models.coherencemodel import CoherenceModel
+from gensim.models.ldamodel import LdaModel
+
+## Entity Recognition ##
+import spacy
+#python -m spacy download en_core_web_sm
+nlp = spacy.load("en_core_web_sm")
 
 ## functions to be used are defined here ##
 
@@ -24,7 +43,7 @@ def plot_frequency_charts(df, feature, title, pallete, n):
     
     f, ax = plt.subplots(1,1, figsize=(20,8))
     total = float(len(df))
-    g = sns.countplot(df[feature], order = df[feature].value_counts().index[:n], palette=pallete)
+    g = sns.countplot(x = df[feature], order = df[feature].value_counts().index[:n], palette=pallete)
     g.set_title("Number and percentage of {}".format(title))
 
     for p in ax.patches:
