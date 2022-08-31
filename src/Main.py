@@ -8,22 +8,21 @@ c1.markdown(original_title, unsafe_allow_html=True)
 c2.image(['/workspace/Proyecto-Final-ML/src/images/UTEC.png', '/workspace/Proyecto-Final-ML/src/images/4geeks_image.png', '/workspace/Proyecto-Final-ML/src/images/BID.png'], width=60)
 # Contenido de la segunda
 
-st.markdown("# ANÁLISIS DE SENTIMIENTOS")
+st.markdown("# ANÁLISIS DE TWEETS UTILIZANDO TÉCNICAS DE NLP")
 st.markdown('')
 st.markdown('')
 st.markdown('')
 st.markdown("## Presentación realizada por:")
-nombre1 = '<p style="font-family:Calabria; color:Black; font-size: 20px;"> 👩‍💼 Romina Gonella</p>'
-nombre2 = '<p style="font-family:Calabria; color:Black; font-size: 20px;"> 👩‍💼 Martina Nuñez</p>'
-nombre3 = '<p style="font-family:Calabria; color:Black; font-size: 20px;"> 👨‍💼 Eduardo Coyto</p>'
+nombre1 = '<p style="font-family:Calabria; color:Black; font-size: 35px;"> 👩‍💼 Romina Gonella</p>'
+nombre2 = '<p style="font-family:Calabria; color:Black; font-size: 35px;"> 👩‍💼 Martina Nuñez</p>'
+nombre3 = '<p style="font-family:Calabria; color:Black; font-size: 35px;"> 👨‍💼 Eduardo Coyto</p>'
+st.markdown('')
+st.markdown('')
+
 st.markdown(nombre1, unsafe_allow_html=True)
 st.markdown(nombre2, unsafe_allow_html=True)
 st.markdown(nombre3, unsafe_allow_html=True)
 
-st.markdown(
-    """
-    **Info sobre el proyecto
 
-    """
-)
+
 

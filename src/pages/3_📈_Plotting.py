@@ -1,20 +1,34 @@
-import streamlit as st
+## libraries ##
+
 import pandas as pd
-import numpy as np 
 pd.set_option('display.max_colwidth', None)
 import matplotlib.pyplot as plt
-from wordcloud import WordCloud
+import seaborn as sns
+from sklearn.metrics import confusion_matrix
+from sklearn.feature_extraction.text import CountVectorizer
+import re
 import nltk
 nltk.download('stopwords')
-import utils
-# vader
-from nltk.sentiment.vader import SentimentIntensityAnalyzer
-# textblob
-from textblob import TextBlob
-# flair
-import flair
-# functions to use (defined in utils.py)
-import utils
+from nltk.corpus import stopwords
+from wordcloud import WordCloud
+from collections import Counter
+nltk.download('wordnet')
+nltk.download('omw-1.4')
+from nltk.stem import WordNetLemmatizer
+
+## Topic Modeling ##
+nltk.download('punkt')
+nltk.download('wordnet')
+from nltk.stem import *
+from nltk.tokenize import word_tokenize
+import pyLDAvis
+import pyLDAvis.gensim_models as gensimvis
+import gensim
+import gensim.corpora as corpora
+from gensim.corpora import Dictionary
+from gensim.models.coherencemodel import CoherenceModel
+from gensim.models.ldamodel import LdaModel
+import streamlit as st
 
 
 proccesed_p = '/workspace/Proyecto-Final-ML/data/processed/Putin_tweets.csv'
