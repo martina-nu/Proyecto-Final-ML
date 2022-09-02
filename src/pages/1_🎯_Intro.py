@@ -1,6 +1,9 @@
 import pandas as pd
 import streamlit as st
 
+# seteamos layout="wide" para usar más espacio (por defecto es "center")
+st.set_page_config(layout="wide")
+
 # Explicar problema y dataset
 
 original_title = '<p style="font-family:Arial; color:Black; font-size: 55px;"> <b> Definición del problema </b></p>'
@@ -15,20 +18,3 @@ original_title = '<p style="font-family:Arial; color:Black; font-size: 55px;"> <
 st.markdown(original_title, unsafe_allow_html=True)
 st.markdown("")
 st.markdown('## Usaremos dos conjuntos de datos disponibles en el sitio web de Kaggle. \n ## "Los dos conjuntos de datos incluyen los principales tweets diarios que contienen la palabra clave Putin en el primer conjunto de datos y Zelensky en el segundo. Cada conjunto de datos contiene 11 columnas respectivamente, cubren el período del 01/01/2022 al 17/07/ 2022 y vienen de todo el mundo"')
-
-padding_top = 2
-padding_bottom = 1
-padding_left = 0
-padding_right = 0
-# max_width_str = f'max-width: 100%;'
-st.markdown(f'''
-            <style>
-                .appview-container.main.block-container {{
-                    padding-top: {padding_top}rem;
-                    padding-right: {padding_right}rem;
-                    padding-left: {padding_left}rem;
-                    padding-bottom: {padding_bottom}rem;
-                }}
-            </style>
-            ''', unsafe_allow_html=True,
-)

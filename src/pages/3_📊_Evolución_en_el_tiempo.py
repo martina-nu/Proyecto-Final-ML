@@ -2,6 +2,9 @@ import streamlit as st
 import pandas as pd 
 import matplotlib.pyplot as plt
 
+# seteamos layout="wide" para usar más espacio (por defecto es "center")
+st.set_page_config(layout="wide")
+
 interim_p = '/workspace/Proyecto-Final-ML/data/interim/Putin_tweets.csv'
 interim_z = '/workspace/Proyecto-Final-ML/data/interim/Zelensky_tweets.csv'
 

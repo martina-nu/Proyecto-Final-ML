@@ -2,6 +2,9 @@ import pandas as pd
 import streamlit as st
 import plotly.express as px
 
+# seteamos layout="wide" para usar más espacio (por defecto es "center")
+st.set_page_config(layout="wide")
+
 original_title = '<p style="font-family:Arial; color:Black; font-size: 55px;"> <b> Datasets originales </b></p>'
 st.markdown(original_title, unsafe_allow_html=True)
 
