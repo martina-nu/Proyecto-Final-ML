@@ -166,10 +166,11 @@ def clean_stopwords(text: str,stop_dict: dict)->str:
     return result
 
 # pruebo pasar lem para adentro de la función (estaba afuera)
+lem = WordNetLemmatizer()
 def lemmatize_words(text):
-    lem = WordNetLemmatizer()
     words = text.split()
-    words = [lem.lemmatize(word) for word in words]
+    words = [lem.lemmatize(word, pos = 'n') for word in words]
+    words = [lem.lemmatize(word, pos = 'v') for word in words]
     return ' '.join(words)
 
 # Take the raw dataframe and return the processed dataframe
