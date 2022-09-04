@@ -59,8 +59,8 @@ def plot_frequency_charts(df, feature, title, pallete, n):
     plt.xticks(rotation=90)
     plt.show()
 
-def get_top_ngram(corpus, n=None):
-    vec = CountVectorizer(ngram_range=(n, n)).fit(corpus)
+def get_top_ngram(corpus, n=None, stop_words=None):
+    vec = CountVectorizer(ngram_range=(n, n), stop_words=stop_words).fit(corpus)
     bag_of_words = vec.transform(corpus)
     sum_words = bag_of_words.sum(axis=0)
     words_freq = [(word, sum_words[0, idx]) for word, idx in vec.vocabulary_.items()]
@@ -165,10 +165,11 @@ def clean_stopwords(text: str,stop_dict: dict)->str:
         result = None
     return result
 
-lemmatizer = WordNetLemmatizer()
+# pruebo pasar lem para adentro de la función (estaba afuera)
 def lemmatize_words(text):
+    lem = WordNetLemmatizer()
     words = text.split()
-    words = [lemmatizer.lemmatize(word) for word in words]
+    words = [lem.lemmatize(word) for word in words]
     return ' '.join(words)
 
 # Take the raw dataframe and return the processed dataframe
@@ -257,15 +258,13 @@ def preprocess(df_raw):
     return df
 
 # function to create a corpus for topic modeling
-def create_corpus_topic(df):
+def create_corpus_topic(df, stop_words=''):
     corpus=[]
-    stem=PorterStemmer()
+    stem=PorterStemmer() # no se usa!!
     lem=WordNetLemmatizer()
     for news in df['Clean_Tweet']:
         words=[w for w in word_tokenize(news)]
-
-        words=[lem.lemmatize(w) for w in words if len(w)>2]
-
+        words=[lem.lemmatize(w) for w in words if len(w)>2 and w not in stop_words] # agregue a partir del and
         corpus.append(words)
     return corpus
 

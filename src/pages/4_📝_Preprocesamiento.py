@@ -1,3 +1,4 @@
+import pandas as pd
 import streamlit as st 
 
 # seteamos layout="wide" para usar más espacio (por defecto es "center")
@@ -12,16 +13,11 @@ st.markdown('* ##### Se cambia tipo de datos ("Timestamp" a datetime64, "Comment
 st.markdown('* ##### Se renombra "Embedded_text" ("Tweet")')
 st.markdown('* ##### Se crean nuevas variables ("Is_Response" y "Quote_another")') 
 st.markdown('* ##### Se crea columna "Clean_Tweet", que incluye las siguientes transformaciones sobre "Tweet":')
-st.markdown('> 1. ##### Expansión de contracciones.')
-st.markdown('> 2. ##### Supresión de menciones e información de respuesta.')
-st.markdown('> 3. ##### Supresión de espacios en blanco y espacios dobles.')
-st.markdown('> 4. ##### Supresión de tweet original en teewts citados (sólo comentario).')
-st.markdown('> 5. ##### Supresión de enlaces.')
-st.markdown('> 6. ##### Texto a minúsculas.')
-st.markdown('> 7. ##### Supresión de palabras repetidas.')
-st.markdown('> 8. ##### Supresión de caracteres no alfanuméricos.')
-st.markdown('> 9. ##### Supresión de letras repetidas en palabras.')
-st.markdown('> 10. ##### Supresión de números.')
-st.markdown('> 11. ##### Supresión de palabras vacías')
-st.markdown('> 12. ##### Lematización')
-st.markdown('> 13. ##### Se descartan tweets vacíos.')
+st.markdown('> ##### 1. Expansión de contracciones. 2. Conversión a minúsculas. 3. Supresión de: números, espacios en blanco y dobles, enlaces, palabras repetidas y letras repetidas en palabras, caracteres no alfanuméricos, menciones e información de respuesta, tweet original en teewts citados. 4. Lematización. 5. Se descartan tweets vacíos.')
+
+Putin_title = '<p style="font-family:Time New Roman; color:Black; font-size: 40px;">Ejemplo</p>'
+st.markdown(Putin_title, unsafe_allow_html=True)
+
+df_interim_p = pd.read_csv('/workspace/Proyecto-Final-ML/data/interim/Putin_tweets.csv')
+
+st.dataframe(df_interim_p[['Tweet', 'Clean_Tweet']].head(20))
