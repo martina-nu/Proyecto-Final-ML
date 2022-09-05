@@ -20,7 +20,7 @@ df_interim_z = pd.read_csv(interim_z)
 # define common words to omit
 common_words = ['vladimir', 'putin', 'volodymyr', 'zelensky', 'russia', 'russian', 'russians', 'ukraine', 'ukrainian', 'president', 'u'] 
 # ajustar si queda bien la lematizacion
-common_phrases = ['following', 'medium', 'includes', 'potentially', 'sensitive', 'content', 'change', 'setting', 'view'] 
+common_phrases = ['following', 'medium', 'include', 'potentially', 'sensitive', 'content', 'setting', 'view'] 
 
 oneWord_title = '<p style="font-family:Time New Roman; color:Black; font-size: 40px;">WordCloud de 100 palabras más frecuentes</p>'
 st.markdown(oneWord_title, unsafe_allow_html=True)
@@ -29,13 +29,13 @@ fig, ax = plt.subplots(1, 2, figsize = (24, 24))
 
 # Putin 
 wordcloud_p = WordCloud(width=600, height=600, random_state = 123, stopwords=common_words+common_phrases, max_words=100).generate(' '.join(i for i in df_interim_p.Clean_Tweet))
-ax[0].set_title('Putin', fontsize = 'xx-large')
+ax[0].set_title('Putin', fontsize = 35)
 ax[0].imshow(wordcloud_p, interpolation = 'bilinear')
 ax[0].axis("off")
 
 # Zelensky
 wordcloud_z = WordCloud(width=600, height=600, random_state = 123, stopwords=common_words+common_phrases, max_words=100).generate(' '.join(i for i in df_interim_z.Clean_Tweet))
-ax[1].set_title('Zelensky', fontsize = 'xx-large')
+ax[1].set_title('Zelensky', fontsize = 35)
 ax[1].imshow(wordcloud_z, interpolation = 'bilinear')
 ax[1].axis("off")
 

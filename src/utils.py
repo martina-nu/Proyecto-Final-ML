@@ -261,7 +261,6 @@ def preprocess(df_raw):
 # function to create a corpus for topic modeling
 def create_corpus_topic(df, stop_words=''):
     corpus=[]
-    stem=PorterStemmer() # no se usa!!
     lem=WordNetLemmatizer()
     for news in df['Clean_Tweet']:
         words=[w for w in word_tokenize(news)]
