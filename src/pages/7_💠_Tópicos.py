@@ -12,7 +12,7 @@ st.set_page_config(layout="wide")
 tit = '<p style="font-family:Arial; color:Black; font-size: 55px;"> <b> Análisis de tópicos </b></p>'
 st.markdown(tit, unsafe_allow_html=True)
 
-p_tit = '<p style="font-family:Time New Roman; color:Black; font-size: 40px;">Tópicos asociados a Putin</p>'
+p_tit = '<p style="font-family:Arial; color:Black; font-size: 40px;">Putin</p>'
 st.markdown(p_tit, unsafe_allow_html=True)
 
 # load model
@@ -22,7 +22,7 @@ with open('data/interim/vis_p.pkl' , 'rb') as f:
 html_string = pyLDAvis.prepared_data_to_html(vis_p)
 components.v1.html(html_string, width=1300, height=800, scrolling=True)
 
-z_tit = '<p style="font-family:Time New Roman; color:Black; font-size: 40px;">Tópicos asociados a Zelensky</p>'
+z_tit = '<p style="font-family:Arial; color:Black; font-size: 40px;">Zelensky</p>'
 st.markdown(z_tit, unsafe_allow_html=True)
 
 # load model

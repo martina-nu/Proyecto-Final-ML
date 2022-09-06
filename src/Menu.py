@@ -4,7 +4,7 @@ import streamlit as st
 st.set_page_config(layout="wide")
 
 c1, c2 = st.columns([10, 8])
-original_title = '<p style="font-family:Time New Roman; color:Black; font-size: 70px;">Proyecto Final</p>'
+original_title = '<b><p style="font-family:Arial; color:Black; font-size: 70px;">Proyecto Final</p></b>'
 c1.markdown(original_title, unsafe_allow_html=True)
 
 # Contenido de la primera columna
@@ -17,9 +17,9 @@ st.markdown('')
 st.markdown('')
 st.markdown('')
 st.markdown("## Presentación realizada por:")
-nombre1 = '<p style="font-family:Calabria; color:Black; font-size: 35px;"> 👩‍💼 Romina Gonella</p>'
-nombre2 = '<p style="font-family:Calabria; color:Black; font-size: 35px;"> 👩‍💼 Martina Nuñez</p>'
-nombre3 = '<p style="font-family:Calabria; color:Black; font-size: 35px;"> 👨‍💼 Eduardo Coyto</p>'
+nombre1 = '<p style="color:Black; font-size: 35px;"> 👩‍💼 Romina Gonella</p>'
+nombre2 = '<p style="color:Black; font-size: 35px;"> 👩‍💼 Martina Nuñez</p>'
+nombre3 = '<p style="color:Black; font-size: 35px;"> 👨‍💼 Eduardo Coyto</p>'
 st.markdown('')
 st.markdown('')
 

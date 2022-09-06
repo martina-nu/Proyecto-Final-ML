@@ -17,4 +17,4 @@ st.markdown("")
 original_title = '<p style="font-family:Arial; color:Black; font-size: 55px;"> <b> Recopilación de datos </b></p>'
 st.markdown(original_title, unsafe_allow_html=True)
 st.markdown("")
-st.markdown('## Usaremos dos conjuntos de datos disponibles en el sitio web de Kaggle. \n ## "Los dos conjuntos de datos incluyen los principales tweets diarios que contienen la palabra clave Putin en el primer conjunto de datos y Zelensky en el segundo. Cada conjunto de datos contiene 11 columnas respectivamente, cubren el período del 01/01/2022 al 17/07/ 2022 y vienen de todo el mundo"')
+st.write('## Usaremos dos conjuntos de datos disponibles en el sitio web de [Kaggle](https://www.kaggle.com/datasets/die9origephit/putin-and-zelensky-tweets). \n ## "Los dos conjuntos de datos incluyen los principales tweets diarios que contienen la palabra clave Putin en el primer conjunto de datos y Zelensky en el segundo. Cada conjunto de datos contiene 11 columnas respectivamente, cubren el período del 01/01/2022 al 17/07/ 2022 y vienen de todo el mundo"')

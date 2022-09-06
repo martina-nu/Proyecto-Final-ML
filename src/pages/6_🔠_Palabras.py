@@ -10,6 +10,9 @@ from wordcloud import WordCloud
 # seteamos layout="wide" para usar más espacio (por defecto es "center")
 st.set_page_config(layout="wide")
 
+tit = '<p style="font-family:Arial; color:Black; font-size: 55px;"> <b> Análisis de palabras</b></p>'
+st.markdown(tit, unsafe_allow_html=True)
+
 ### --- LOAD DATAFRAME
 interim_p = '/workspace/Proyecto-Final-ML/data/interim/Putin_tweets.csv'
 interim_z = '/workspace/Proyecto-Final-ML/data/interim/Zelensky_tweets.csv'
@@ -22,20 +25,20 @@ common_words = ['vladimir', 'putin', 'volodymyr', 'zelensky', 'russia', 'russian
 # ajustar si queda bien la lematizacion
 common_phrases = ['following', 'medium', 'include', 'potentially', 'sensitive', 'content', 'setting', 'view'] 
 
-oneWord_title = '<p style="font-family:Time New Roman; color:Black; font-size: 40px;">WordCloud de 100 palabras más frecuentes</p>'
+oneWord_title = '<p style="font-family:Arial; color:Black; font-size: 40px;">WordCloud de 100 palabras más frecuentes</p>'
 st.markdown(oneWord_title, unsafe_allow_html=True)
 
 fig, ax = plt.subplots(1, 2, figsize = (24, 24))
 
 # Putin 
 wordcloud_p = WordCloud(width=600, height=600, random_state = 123, stopwords=common_words+common_phrases, max_words=100).generate(' '.join(i for i in df_interim_p.Clean_Tweet))
-ax[0].set_title('Putin', fontsize = 35)
+ax[0].set_title('Putin',fontsize = 40,  pad=30)
 ax[0].imshow(wordcloud_p, interpolation = 'bilinear')
 ax[0].axis("off")
 
 # Zelensky
 wordcloud_z = WordCloud(width=600, height=600, random_state = 123, stopwords=common_words+common_phrases, max_words=100).generate(' '.join(i for i in df_interim_z.Clean_Tweet))
-ax[1].set_title('Zelensky', fontsize = 35)
+ax[1].set_title('Zelensky', fontsize = 40,  pad=30)
 ax[1].imshow(wordcloud_z, interpolation = 'bilinear')
 ax[1].axis("off")
 
@@ -58,7 +61,7 @@ df_p_bi.columns=['Text', 'Freq']
 df_z_bi= pd.DataFrame(get_top_ngram(df_interim_z['Clean_Tweet'], 2, common_words + common_phrases))
 df_z_bi.columns=['Text', 'Freq']
 
-bigram_title = '<p style="font-family:Time New Roman; color:Black; font-size: 40px;">Bigramas </p>'
+bigram_title = '<p style="font-family:Arial; color:Black; font-size: 40px;">Bigramas </p>'
 st.markdown(bigram_title, unsafe_allow_html=True)
 
 fig = make_subplots(rows=1, cols=2, shared_xaxes=True)
@@ -79,7 +82,7 @@ df_z_tri.columns = ['Text', 'Freq']
 df_p_tri= pd.DataFrame(get_top_ngram(df_interim_p['Clean_Tweet'],3, common_words + common_phrases))
 df_p_tri.columns = ['Text', 'Freq']
 
-trigram_title = '<p style="font-family:Time New Roman; color:Black; font-size: 40px;">Trigramas </p>'
+trigram_title = '<p style="font-family:Arial; color:Black; font-size: 40px;">Trigramas </p>'
 st.markdown(trigram_title, unsafe_allow_html=True)
 
 fig = make_subplots(rows=1, cols=2, shared_xaxes=True)

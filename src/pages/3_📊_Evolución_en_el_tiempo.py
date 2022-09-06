@@ -7,6 +7,9 @@ import plotly.graph_objects as go
 # seteamos layout="wide" para usar más espacio (por defecto es "center")
 st.set_page_config(layout="wide")
 
+original_title = '<p style="font-family:Arial; color:Black; font-size: 55px;"> <b> Cantidad de tweets por mes según presidente </b></p>'
+st.markdown(original_title, unsafe_allow_html=True)
+
 interim_p = '/workspace/Proyecto-Final-ML/data/interim/Putin_tweets.csv'
 interim_z = '/workspace/Proyecto-Final-ML/data/interim/Zelensky_tweets.csv'
 
@@ -26,7 +29,6 @@ fig = go.Figure()
 fig.add_trace(go.Scatter(x=df_p.Timestamp, y=df_p.Clean_Tweet, mode='lines+markers', name='Putin'))
 fig.add_trace(go.Scatter(x=df_z.Timestamp, y=df_z.Clean_Tweet, mode='lines+markers', name='Zelensky'))
 fig.update_layout(
-    title="Cantidad de tweets por mes según presidente",
     xaxis_title="mes", yaxis_title="cantidad de tweets",legend_title="Presidente",
     font=dict(size=18))
 

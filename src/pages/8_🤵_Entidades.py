@@ -42,7 +42,7 @@ st.markdown(tit, unsafe_allow_html=True)
 
 # ENTIDAD GPE
 
-tit_2 = '<p style="font-family:Time New Roman; color:Black; font-size: 40px;">Compañías e Instituciones </p>'
+tit_2 = '<p style="font-family:Arial; color:Black; font-size: 40px;">Compañías e Instituciones </p>'
 st.markdown(tit_2, unsafe_allow_html=True)
 
 # load object
@@ -65,7 +65,7 @@ st.plotly_chart(fig, use_container_width=True, showlegend= False)
 
 # ENTIDAD NORP
 
-tit_3 = '<p style="font-family:Time New Roman; color:Black; font-size: 40px;">Inst. Religiosas o Políticas </p>'
+tit_3 = '<p style="font-family:Arial; color:Black; font-size: 40px;">Nacionalidades, Inst. Religiosas o Políticas </p>'
 st.markdown(tit_3, unsafe_allow_html=True)
 
 # load object
@@ -88,7 +88,7 @@ st.plotly_chart(fig, use_container_width=True, showlegend= False)
 
 # ENTIDAD PERSONA
 
-tit_1 = '<p style="font-family:Time New Roman; color:Black; font-size: 40px;">Personas </p>'
+tit_1 = '<p style="font-family:Arial; color:Black; font-size: 40px;">Personas </p>'
 st.markdown(tit_1, unsafe_allow_html=True)
 
 # load object

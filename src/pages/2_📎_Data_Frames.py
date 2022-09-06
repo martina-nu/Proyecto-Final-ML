@@ -14,7 +14,7 @@ raw_z = '/workspace/Proyecto-Final-ML/data/raw/Zelensky_Tweets.csv'
 df_raw_p = pd.read_csv(raw_p)
 df_raw_z = pd.read_csv(raw_z)
 
-Putin_title = '<p style="font-family:Time New Roman; color:Black; font-size: 40px;">Tweets de Putin</p>'
+Putin_title = '<p style="font-family:Arial; color:Black; font-size: 40px;">Tweets de Putin</p>'
 st.markdown(Putin_title, unsafe_allow_html=True)
 st.dataframe(df_raw_p.head(20))
 
@@ -22,7 +22,7 @@ st.markdown('')
 string_p = str(df_raw_p.shape[0]) + ' filas y ' + str(df_raw_p.shape[1]) + ' columnas '
 st.write(string_p)
 
-Zelensky_title = '<p style="font-family:Time New Roman; color:Black; font-size: 40px;">Tweets de Zelensky</p>'
+Zelensky_title = '<p style="font-family:Arial; color:Black; font-size: 40px;">Tweets de Zelensky</p>'
 st.markdown(Zelensky_title, unsafe_allow_html=True)
 st.dataframe(df_raw_z.head(20))
 
