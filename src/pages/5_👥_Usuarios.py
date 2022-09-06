@@ -41,5 +41,7 @@ fig_z.update_layout(xaxis_title="usuario", yaxis_title="frecuencia",font=dict(si
 # Plot!
 st.plotly_chart(fig_z, use_container_width=True)
 
+bot_title = '<p style="font-family:Time New Roman; color:Black; font-size: 40px;">Twitter Bots 🤖 </p>'
+st.markdown(bot_title, unsafe_allow_html=True)
 st.markdown('')
-st.write('##### 🤖 Dentro de los usuarios que más publican se identificaron Bots utilizando la herramienta [Botometer](https://botometer.osome.iu.edu/)')
+st.write('##### Dentro de los usuarios que más publican se identificaron Bots utilizando la herramienta [Botometer](https://botometer.osome.iu.edu/)')
