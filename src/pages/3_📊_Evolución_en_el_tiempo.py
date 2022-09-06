@@ -10,8 +10,8 @@ st.set_page_config(layout="wide")
 original_title = '<p style="font-family:Arial; color:Black; font-size: 55px;"> <b> Cantidad de tweets por mes según presidente </b></p>'
 st.markdown(original_title, unsafe_allow_html=True)
 
-interim_p = '/workspace/Proyecto-Final-ML/data/interim/Putin_tweets.csv'
-interim_z = '/workspace/Proyecto-Final-ML/data/interim/Zelensky_tweets.csv'
+interim_p = 'data/interim/Putin_tweets.csv'
+interim_z = 'data/interim/Zelensky_tweets.csv'
 
 df_interim_p = pd.read_csv(interim_p)
 df_interim_z = pd.read_csv(interim_z)

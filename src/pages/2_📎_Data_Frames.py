@@ -9,8 +9,8 @@ original_title = '<p style="font-family:Arial; color:Black; font-size: 55px;"> <
 st.markdown(original_title, unsafe_allow_html=True)
 
 ### --- LOAD DATAFRAME
-raw_p = '/workspace/Proyecto-Final-ML/data/raw/Putin_Tweets.csv'
-raw_z = '/workspace/Proyecto-Final-ML/data/raw/Zelensky_Tweets.csv'
+raw_p = 'data/raw/Putin_Tweets.csv'
+raw_z = 'data/raw/Zelensky_Tweets.csv'
 df_raw_p = pd.read_csv(raw_p)
 df_raw_z = pd.read_csv(raw_z)
 

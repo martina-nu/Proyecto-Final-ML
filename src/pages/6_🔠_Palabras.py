@@ -14,8 +14,8 @@ tit = '<p style="font-family:Arial; color:Black; font-size: 55px;"> <b> Análisi
 st.markdown(tit, unsafe_allow_html=True)
 
 ### --- LOAD DATAFRAME
-interim_p = '/workspace/Proyecto-Final-ML/data/interim/Putin_tweets.csv'
-interim_z = '/workspace/Proyecto-Final-ML/data/interim/Zelensky_tweets.csv'
+interim_p = 'data/interim/Putin_tweets.csv'
+interim_z = 'data/interim/Zelensky_tweets.csv'
 
 df_interim_p = pd.read_csv(interim_p)
 df_interim_z = pd.read_csv(interim_z)

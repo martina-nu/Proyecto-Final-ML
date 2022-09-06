@@ -9,11 +9,11 @@ st.set_page_config(layout="wide")
 # ENTIDADES
 
 # load object
-with open('/workspace/Proyecto-Final-ML/data/interim/count_p.pkl' , 'rb') as f:
+with open('data/interim/count_p.pkl' , 'rb') as f:
     count_p = pickle.load(f)
 
 # load object
-with open('/workspace/Proyecto-Final-ML/data/interim/count_z.pkl' , 'rb') as f:
+with open('data/interim/count_z.pkl' , 'rb') as f:
     count_z = pickle.load(f)
 
 x_p,y_p=map(list,zip(*count_p))
@@ -46,11 +46,11 @@ tit_2 = '<p style="font-family:Arial; color:Black; font-size: 40px;">Compañías
 st.markdown(tit_2, unsafe_allow_html=True)
 
 # load object
-with open('/workspace/Proyecto-Final-ML/data/interim/count_gpe_p.pkl' , 'rb') as f:
+with open('data/interim/count_gpe_p.pkl' , 'rb') as f:
     count_gpe_p = pickle.load(f)
 
 # load object
-with open('/workspace/Proyecto-Final-ML/data/interim/count_gpe_z.pkl' , 'rb') as f:
+with open('data/interim/count_gpe_z.pkl' , 'rb') as f:
     count_gpe_z = pickle.load(f)
 
 x_p,y_p=map(list,zip(*count_gpe_p))
@@ -69,11 +69,11 @@ tit_3 = '<p style="font-family:Arial; color:Black; font-size: 40px;">Nacionalida
 st.markdown(tit_3, unsafe_allow_html=True)
 
 # load object
-with open('/workspace/Proyecto-Final-ML/data/interim/count_norp_p.pkl' , 'rb') as f:
+with open('data/interim/count_norp_p.pkl' , 'rb') as f:
     count_norp_p = pickle.load(f)
 
 # load object
-with open('/workspace/Proyecto-Final-ML/data/interim/count_norp_z.pkl' , 'rb') as f:
+with open('data/interim/count_norp_z.pkl' , 'rb') as f:
     count_norp_z = pickle.load(f)
 
 x_p,y_p=map(list,zip(*count_norp_p))
@@ -92,11 +92,11 @@ tit_1 = '<p style="font-family:Arial; color:Black; font-size: 40px;">Personas </
 st.markdown(tit_1, unsafe_allow_html=True)
 
 # load object
-with open('/workspace/Proyecto-Final-ML/data/interim/count_person_p.pkl' , 'rb') as f:
+with open('data/interim/count_person_p.pkl' , 'rb') as f:
     count_person_p = pickle.load(f)
 
 # load object
-with open('/workspace/Proyecto-Final-ML/data/interim/count_person_z.pkl' , 'rb') as f:
+with open('data/interim/count_person_z.pkl' , 'rb') as f:
     count_person_z = pickle.load(f)
 
 x_p,y_p=map(list,zip(*count_person_p))

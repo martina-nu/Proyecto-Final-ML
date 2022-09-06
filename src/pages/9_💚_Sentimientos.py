@@ -10,8 +10,8 @@ import seaborn as sns
 st.set_page_config(layout="wide")
 st.set_option('deprecation.showPyplotGlobalUse', False) # para evitar warnings avisando que no se puede usar st.pyplot() sin argumentos
 
-final_p = '/workspace/Proyecto-Final-ML/data/processed/Putin_tweets.csv'
-final_z = '/workspace/Proyecto-Final-ML/data/processed/Zelensky_tweets.csv'
+final_p = 'data/processed/Putin_tweets.csv'
+final_z = 'data/processed/Zelensky_tweets.csv'
 df_final_p = pd.read_csv(final_p)
 df_final_z = pd.read_csv(final_z)
 

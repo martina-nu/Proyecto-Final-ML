@@ -18,6 +18,6 @@ st.markdown('> ##### 1. Expansión de contracciones. 2. Conversión a minúscula
 Putin_title = '<p style="font-family:Arial;color:Black; font-size: 40px;">Ejemplo</p>'
 st.markdown(Putin_title, unsafe_allow_html=True)
 
-df_interim_p = pd.read_csv('/workspace/Proyecto-Final-ML/data/interim/Putin_tweets.csv')
+df_interim_p = pd.read_csv('data/interim/Putin_tweets.csv')
 
 st.dataframe(df_interim_p[['Tweet', 'Clean_Tweet']].head(20))

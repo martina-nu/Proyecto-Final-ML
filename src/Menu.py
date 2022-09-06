@@ -9,7 +9,7 @@ c1.markdown(original_title, unsafe_allow_html=True)
 
 # Contenido de la primera columna
 #c2.image(['/workspace/Proyecto-Final-ML/src/images/UTEC.png', '/workspace/Proyecto-Final-ML/src/images/4geeks_image.png', '/workspace/Proyecto-Final-ML/src/images/BID.png'], width=90)
-c2.image('/workspace/Proyecto-Final-ML/src/images/logos_juntos.png')
+c2.image('src/images/logos_juntos.png')
 # Contenido de la segunda
 
 st.markdown("# ANÁLISIS DE TWEETS UTILIZANDO TÉCNICAS DE NLP")
