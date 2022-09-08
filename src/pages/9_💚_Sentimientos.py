@@ -81,7 +81,6 @@ sent_texblob_z_flairPos = df_final_z['textblob_Sentiment'].loc[df_final_z['flair
 
 fig, ax = plt.subplots(1, 2, figsize = (48, 24))
 
-
 cf_matrix3 = confusion_matrix(sent_vader_z_flairNeg, sent_texblob_z_flairNeg)
 sns.heatmap(cf_matrix3, cbar=False, annot=True, fmt='g', xticklabels=x_axis_labels, yticklabels=y_axis_labels, cmap="Blues",ax=ax[0])
 
@@ -101,6 +100,8 @@ ax[1].set_title('Flair Positive', fontsize = 80, pad=50)
 fig.show()
 st.pyplot(fig)
 
+tit = '<p style="font-family:Arial; color:Black; font-size: 55px;"> <b> Nube de palabras según tipo de sentimientos </b></p>'
+st.markdown(tit, unsafe_allow_html=True)
 
 # define common words to omit
 common_words = ['vladimir', 'putin', 'volodymyr', 'zelensky', 'russia', 'russian', 'russians', 'ukraine', 'ukrainian', 'president', 'u'] 
@@ -109,7 +110,7 @@ common_phrases = ['following', 'medium', 'include', 'potentially', 'sensitive', 
 
 # WORDCLOUD PUTIN
 
-tit = '<p style="font-family:Arial; color:Black; font-size: 40px;">WordCloud según tipo de sentimiento - Putin</p>'
+tit = '<p style="font-family:Arial; color:Black; font-size: 40px;">Putin</p>'
 st.markdown(tit, unsafe_allow_html=True)
 
 fig, ax = plt.subplots(1, 2, figsize = (24, 24))
@@ -133,7 +134,7 @@ st.pyplot(fig)
 
 # WORDCLOUD ZELENSKY
 
-tit = '<p style="font-family:Arial; color:Black; font-size: 40px;">WordCloud según tipo de sentimiento - Zelensky</p>'
+tit = '<p style="font-family:Arial; color:Black; font-size: 40px;">Zelensky</p>'
 st.markdown(tit, unsafe_allow_html=True)
 
 fig, ax = plt.subplots(1, 2, figsize = (24, 24))

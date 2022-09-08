@@ -25,7 +25,7 @@ common_words = ['vladimir', 'putin', 'volodymyr', 'zelensky', 'russia', 'russian
 # ajustar si queda bien la lematizacion
 common_phrases = ['following', 'medium', 'include', 'potentially', 'sensitive', 'content', 'setting', 'view'] 
 
-oneWord_title = '<p style="font-family:Arial; color:Black; font-size: 40px;">WordCloud de 100 palabras más frecuentes</p>'
+oneWord_title = '<p style="font-family:Arial; color:Black; font-size: 40px;">Nube de 100 palabras más frecuentes</p>'
 st.markdown(oneWord_title, unsafe_allow_html=True)
 
 fig, ax = plt.subplots(1, 2, figsize = (24, 24))

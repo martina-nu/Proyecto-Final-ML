@@ -19,8 +19,11 @@ with open('data/interim/count_z.pkl' , 'rb') as f:
 x_p,y_p=map(list,zip(*count_p))
 x_z,y_z=map(list,zip(*count_z))
 
-tit = '<p style="font-family:Arial; color:Black; font-size: 55px;"> <b> Entidades </b></p>'
+tit = '<p style="font-family:Arial; color:Black; font-size: 55px;"> <b> Análisis de entidades </b></p>'
 st.markdown(tit, unsafe_allow_html=True)
+
+st.markdown('* ##### Librería spacy')
+st.markdown('* ##### Para no sesgar el análisis se excluye la palabra “putin” y “zelensky” según corresponda.')
 
 fig = make_subplots(rows=1, cols=2, shared_xaxes=True, shared_yaxes=True)
 fig.add_trace(go.Bar(x=x_p, y=y_p, name='Putin'),1,1)
@@ -30,8 +33,8 @@ fig.update_layout(coloraxis=dict(colorscale='Bluered_r'), showlegend=True, font=
 st.plotly_chart(fig, use_container_width=True, showlegend= False)
 
 st.markdown('')
-st.markdown('##### Las principales entidades identificadas son:')
-st.markdown('###### **GPE:** Empresas, instituciones, etc.')
+st.markdown('* ##### Las principales entidades identificadas son:')
+st.markdown('###### **GPE:** Compañías, instituciones, países, etc.')
 st.markdown('###### **NORP:** Nacionalidades, grupos religiosos y políticos.')
 st.markdown('###### **PERSONA:** Personas (incluidas ficticias).')
 st.markdown('')
@@ -42,7 +45,7 @@ st.markdown(tit, unsafe_allow_html=True)
 
 # ENTIDAD GPE
 
-tit_2 = '<p style="font-family:Arial; color:Black; font-size: 40px;">Compañías e Instituciones </p>'
+tit_2 = '<p style="font-family:Arial; color:Black; font-size: 40px;">Compañías , instituciones o países </p>'
 st.markdown(tit_2, unsafe_allow_html=True)
 
 # load object
@@ -65,7 +68,7 @@ st.plotly_chart(fig, use_container_width=True, showlegend= False)
 
 # ENTIDAD NORP
 
-tit_3 = '<p style="font-family:Arial; color:Black; font-size: 40px;">Nacionalidades, Inst. Religiosas o Políticas </p>'
+tit_3 = '<p style="font-family:Arial; color:Black; font-size: 40px;">Nacionalidades, grupos religiosos y políticos </p>'
 st.markdown(tit_3, unsafe_allow_html=True)
 
 # load object

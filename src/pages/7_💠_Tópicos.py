@@ -12,6 +12,8 @@ st.set_page_config(layout="wide")
 tit = '<p style="font-family:Arial; color:Black; font-size: 55px;"> <b> Análisis de tópicos </b></p>'
 st.markdown(tit, unsafe_allow_html=True)
 
+st.markdown('* ##### Librería gensim, modelo LdaMulticore')
+
 p_tit = '<p style="font-family:Arial; color:Black; font-size: 40px;">Putin</p>'
 st.markdown(p_tit, unsafe_allow_html=True)
 
