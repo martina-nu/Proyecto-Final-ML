@@ -1,7 +1,7 @@
 # TWEET ANALYSIS USING NLP TECHNIQUES
 
 
-### The aim of this project is to apply sentiment analysis to a dataset of tweets mentioning Putin and Zelensky. The main goal is to find out how these leaders are perceived over time.
+### The aim of this project is to apply NLP techniques to a dataset of tweets mentioning Putin and Zelensky. The main goal is to find out how these leaders are perceived over time.
 
 #### We will use two datasets available on the Kaggle website.
 
